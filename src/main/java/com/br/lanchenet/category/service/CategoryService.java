@@ -1,4 +1,4 @@
-package com.br.lanchenet.category.CategoryService;
+package com.br.lanchenet.category.service;
 
 import com.br.lanchenet.category.entity.Category;
 import com.br.lanchenet.category.repository.CategoryRepository;
@@ -19,7 +19,19 @@ public class CategoryService {
         return categoryRepository.findAll(page);
     }
 
-    public Optional<Category> doGetOne(Long id){
-        return categoryRepository.findById(id);
+    public Optional<Category> findOne(Long id){
+        Optional<Category> search = categoryRepository.findById(id);
+        if(search.isEmpty()) return Optional.empty();
+        return search;
+    }
+
+    public Category doPost(Category category){
+        categoryRepository.save(category);
+        return category;
+    }
+
+    public Category doPut(Category category){
+        categoryRepository.save(category);
+        return category;
     }
 }

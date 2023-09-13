@@ -1,7 +1,9 @@
 CREATE TABLE product (
     id SERIAL PRIMARY KEY,
-    nm_product VARCHAR(50) NOT NULL,
+    name VARCHAR(50) NOT NULL,
     price numeric(14, 2) NOT NULL,
     description varchar(50),
-    active BOOLEAN NOT NULL
+    category_id int8 NOT NULL,
+    active BOOLEAN NOT NULL,
+    CONSTRAINT product_fk_category_id FOREIGN KEY (category_id) REFERENCES category(id)
 );

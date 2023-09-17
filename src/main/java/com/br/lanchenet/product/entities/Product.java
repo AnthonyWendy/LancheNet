@@ -2,6 +2,7 @@ package com.br.lanchenet.product.entities;
 
 import com.br.lanchenet.category.entity.Category;
 import com.br.lanchenet.ingredient.entity.Ingredient;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotBlank;

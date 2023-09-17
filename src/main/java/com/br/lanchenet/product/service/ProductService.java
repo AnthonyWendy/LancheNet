@@ -25,13 +25,20 @@ public class ProductService {
         return search;
     }
 
-    public Product doPost(Product product){
-        productRepository.save(product);
-        return product;
+    public Product doPost(Product entity){
+        setReference(entity);
+         productRepository.save(entity);
+        return productRepository.getOne(entity.getId());
     }
 
     public Product doPut(Product product){
         productRepository.save(product);
         return product;
+    }
+
+    private void setReference(Product entity){
+        entity.getListIngredient().forEach(object -> {
+            object.setProduct(entity);
+                });
     }
 }

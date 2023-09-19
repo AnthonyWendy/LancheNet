@@ -31,7 +31,7 @@ public class Person {
 
     @Enumerated(EnumType.STRING)
     @NotNull(message = "error.user.type_user.empty")
-    private TypeUser typeUser;
+    private TypePerson typePerson;
 
     @AssertTrue
     private Boolean active;

@@ -29,13 +29,13 @@ public class CategoryController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Category> postCategory(@RequestBody Category entity){
+    public ResponseEntity<Category> postEntity(@RequestBody Category entity){
         Category category = serviceCategory.doPost(entity);
         return ResponseEntity.accepted().body(category);
     }
 
     @PutMapping("/")
-    public ResponseEntity<Category> putCategory(@RequestBody Category entity){
+    public ResponseEntity<Category> putEntity(@RequestBody Category entity){
         Category update = serviceCategory.doPut(entity);
         return ResponseEntity.accepted().body(update);
     }

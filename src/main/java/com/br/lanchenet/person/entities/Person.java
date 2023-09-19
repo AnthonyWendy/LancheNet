@@ -1,9 +1,6 @@
-package com.br.lanchenet.user.entities;
+package com.br.lanchenet.person.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
@@ -13,7 +10,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +29,8 @@ public class User {
     @Size(max = 50)
     private String password;
 
-    @NotBlank(message = "error.user.type_user.empty")
+    @Enumerated(EnumType.STRING)
+    @NotNull(message = "error.user.type_user.empty")
     private TypeUser typeUser;
 
     @AssertTrue

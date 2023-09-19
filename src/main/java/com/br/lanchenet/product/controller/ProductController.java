@@ -26,7 +26,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Product>> getOne(@PathVariable Long id){
-        Optional<Product> search = productService.findProduct(id);
+        Optional<Product> search = productService.getOne(id);
         return ResponseEntity.accepted().body(search);
     }
 

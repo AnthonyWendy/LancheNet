@@ -16,13 +16,12 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
-    public Page<Product> doFindAll(Pageable page){
-        return productRepository.findAll(page);
+    public Page<Product> doFindAll(Pageable pageable){
+        return productRepository.findAll(pageable);
     }
 
-    public Optional<Product> findProduct(Long id){
-        Optional<Product> search = productRepository.findById(id);
-        return search;
+    public Optional<Product> getOne(Long id){
+        return productRepository.findById(id);
     }
 
     public Product doPost(Product entity){
@@ -31,9 +30,9 @@ public class ProductService {
         return productRepository.getOne(entity.getId());
     }
 
-    public Product doPut(Product product){
-        productRepository.save(product);
-        return product;
+    public Product doPut(Product entity){
+        productRepository.save(entity);
+        return productRepository.getOne(entity.getId());
     }
 
     private void setReference(Product entity){

@@ -2,6 +2,7 @@ package com.br.lanchenet.category.controller;
 
 import com.br.lanchenet.category.entity.Category;
 import com.br.lanchenet.category.service.CategoryService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,13 +30,13 @@ public class CategoryController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Category> postEntity(@RequestBody Category entity){
+    public ResponseEntity<Category> postEntity(@Valid @RequestBody Category entity){
         Category category = serviceCategory.doPost(entity);
         return ResponseEntity.accepted().body(category);
     }
 
     @PutMapping("/")
-    public ResponseEntity<Category> putEntity(@RequestBody Category entity){
+    public ResponseEntity<Category> putEntity(@Valid @RequestBody Category entity){
         Category update = serviceCategory.doPut(entity);
         return ResponseEntity.accepted().body(update);
     }
